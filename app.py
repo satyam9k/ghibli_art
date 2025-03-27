@@ -12,7 +12,7 @@ st.markdown(
     <style>
     .stApp {
         # background: linear-gradient(135deg, #D91656, #640D5F);
-        background: linear-gradient(135deg, #F05A7E, #125B9A);
+        background: linear-gradient(135deg, #EB3678, #4F1787);
         font-family: 'Open Sans', sans-serif;
     }
     .css-18e3th9 { 
