@@ -87,7 +87,7 @@ def generate(image_path, style_prompt):
         st.error(f"Error during image generation: {e}")
         return None
 
-st.title("👨🏼‍🎨👩🏼‍🎨")
+st.title("👨🏻‍🎨✨👩🏻‍🎨")
 mode = st.radio("Choose a transformation mode:", (
     "High Quality Ghibli Style Artwork", 
     "Classic Anime Style", 
