@@ -58,7 +58,7 @@ def generate(image_path, style_prompt):
 st.title("High Quality Style Image Transformer")
 mode = st.radio("Choose a transformation mode:", (
     "High Quality Ghibli Style Artwork", 
-    "Comic Book Panel Style", 
+    "Modern Day Anime Style", 
     "Ghibli Aesthetic Nature Background"
 ))
 if mode == "High Quality Ghibli Style Artwork":
@@ -68,18 +68,18 @@ if mode == "High Quality Ghibli Style Artwork":
         "Produce a cute and soft output with soft lighting, vibrant colors, and hand-painted textures. "
         "Avoid hallucinating elements not present in the original image and maintain context fidelity."
     )
-elif mode == "Comic Book Panel Style":
+elif mode == "Modern Day Anime Style":
     prompt = (
-        "Transform the uploaded image into a Marvel comic book panel style artwork while staying as true as possible "
-        "to the original image. Emphasize bold outlines, dynamic colors, and dramatic contrast with a clean, crisp comic aesthetic. "
-        "Ensure that facial features and expressions remain clear, and produce a cute and soft overall output that retains the original context."
+        "Transform the uploaded image into a modern day anime style artwork while staying true to the original image. "
+        "Focus on preserving the subject's facial features and expressions with crisp clarity, vibrant colors, and dynamic lighting. "
+        "Utilize sleek, modern anime aesthetics to produce a cute and soft output that retains the original context without extraneous details."
     )
 else:  # Ghibli Aesthetic Nature Background
     prompt = (
-        "Reimagine the uploaded image by blending the subject with a Studio Ghibli aesthetic nature background. "
-        "Focus on preserving the original subject and facial details while integrating a lush, detailed natural scenery in the Ghibli style. Do not show the back of original subject, make them do some activity or face infront "
-        "Use soft lighting, vibrant colors, and hand-painted textures to create an enchanting, cute, and soft output. "
-        "Ensure the added nature background is seamlessly integrated and that no extraneous elements are introduced."
+        "Reimagine the uploaded image by blending the subject with a Studio Ghibli aesthetic nature background that accentuates natural beauty and whimsical forest scenery. "
+        "Focus on preserving the original subject with clear, detailed facial features and expressions, while integrating lush, vibrant nature seamlessly in the background. "
+        "Ensure the subject is facing forward or engaged in an activity that complements the natural setting, avoiding any depiction of the subject's back. "
+        "Use soft, enchanting lighting, vivid colors, and hand-painted textures to evoke a dreamy, cute, and soft output."
     )
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
