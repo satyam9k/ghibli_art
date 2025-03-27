@@ -19,6 +19,7 @@ st.markdown(
         font-size: 2.5rem;
         color: #333;
         font-weight: bold;
+        font-family: 'Merriweather', serif;
     }
     .stButton>button {
         background-color: #180161;
@@ -27,12 +28,18 @@ st.markdown(
         border: none;
         padding: 0.5rem 1.5rem;
         font-size: 1rem;
+        font-family: 'Merriweather', serif;
     }
     .stFileUploader {
         background-color: #7E1891;
         border: 2px dashed #FFB6C1;
         border-radius: 10px;
         padding: 2rem;
+        font-family: 'Merriweather', serif;
+    }
+    .stRadio label {
+        font-family: 'Merriweather', serif;
+        font-size: 1.2rem;
     }
     </style>
     """,
