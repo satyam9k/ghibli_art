@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(135deg, #EB5B00, #D91656);
+        background: linear-gradient(135deg, #D91656, #640D5F);
         font-family: 'Open Sans', sans-serif;
     }
     .css-18e3th9 { 
@@ -28,7 +28,7 @@ st.markdown(
         font-size: 1rem;
     }
     .stFileUploader {
-        background-color: #FF9B50;
+        background-color: #EB5B00;
         border: 2px dashed #FFB6C1;
         border-radius: 10px;
         padding: 2rem;
