@@ -59,7 +59,7 @@ def generate(image_path):
 st.title("Ghibli Style Image Transformer")
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
-    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+    st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
     if st.button("Transform Image"):
         with st.spinner("Transforming image..."):
             temp_file_path = f"temp_{uploaded_file.name}"
@@ -69,7 +69,7 @@ if uploaded_file is not None:
             os.remove(temp_file_path)
             if output_path:
                 st.success("Image transformed successfully!")
-                st.image(output_path, caption="Transformed Image", use_column_width=True)
+                st.image(output_path, caption="Transformed Image", use_container_width=True)
                 with open(output_path, "rb") as file:
                     mime_type = "image/jpeg" if output_path.lower().endswith((".jpg", ".jpeg")) else "image/png"
                     st.download_button(label="Download Transformed Image", data=file, file_name=output_path, mime=mime_type)
