@@ -58,28 +58,28 @@ def generate(image_path, style_prompt):
 st.title("High Quality Style Image Transformer")
 mode = st.radio("Choose a transformation mode:", (
     "High Quality Ghibli Style Artwork", 
-    "Modern Day Anime Style", 
+    "Classic Anime Style", 
     "Playing in Ghibli World"
 ))
 if mode == "High Quality Ghibli Style Artwork":
     prompt = (
         "Transform the uploaded image into a Studio Ghibli style artwork while staying as true as possible "
         "to the original image. Focus on preserving the subject, facial features, expressions, and the background with high detail. "
-        "Produce a cute and soft output with soft lighting, vibrant colors, and hand-painted textures. "
+        "Produce a cute and soft output with gentle lighting, vibrant colors, and hand-painted textures. "
         "Avoid hallucinating elements not present in the original image and maintain context fidelity."
     )
-elif mode == "Modern Day Anime Style":
+elif mode == "Classic Anime Style":
     prompt = (
-        "Transform the uploaded image into a modern day anime style artwork while staying true to the original image. "
-        "Focus on preserving the subject's facial features and expressions with crisp clarity, vibrant colors, and dynamic lighting. "
-        "Utilize sleek, modern anime aesthetics to produce a cute and soft output that retains the original context without extraneous details."
+        "Transform the uploaded image into a classic anime style artwork that harkens back to traditional hand-drawn techniques. "
+        "Emphasize clean, expressive facial features and nostalgic, soft color palettes with dynamic yet gentle lighting. "
+        "Ensure the style remains faithful to the original subject while producing a cute, soft, and timeless anime aesthetic without adding extraneous details."
     )
 else:  # Playing in Ghibli World
     prompt = (
-        "Reimagine the uploaded image as if the subject is playing in a Studio Ghibli world. "
-        "Blend the subject seamlessly with a magical, vibrant Ghibli-inspired setting filled with whimsical details and lush natural elements. "
-        "Focus on preserving the subject's facial features and expressions while portraying them engaging in playful activity within a richly detailed, enchanting environment. "
-        "Ensure the output is cute, soft, and faithful to the original image without introducing any unrelated elements."
+        "Reimagine the uploaded image as if the subject is playing in a magical Studio Ghibli world. "
+        "Blend the subject seamlessly with an enchanting, vibrant Ghibli-inspired setting filled with whimsical details and lush natural scenery. "
+        "Focus on preserving the subject's clear facial features and expressions while depicting them engaging in playful activity within a richly detailed, fantastical environment. "
+        "Produce a cute and soft output with gentle lighting and harmonious colors, ensuring the subject remains central and true to the original image."
     )
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
