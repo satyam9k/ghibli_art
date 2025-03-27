@@ -1,5 +1,4 @@
 import streamlit as st
-import base64
 import os
 import mimetypes
 from google import genai
@@ -12,7 +11,7 @@ def save_binary_file(file_name, data):
     with open(file_name, "wb") as f:
         f.write(data)
 
-def generate(image_path):
+def generate(image_path, style_prompt):
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
     try:
         files = [client.files.upload(file=image_path)]
@@ -25,7 +24,7 @@ def generate(image_path):
             role="user",
             parts=[
                 types.Part.from_uri(file_uri=files[0].uri, mime_type=files[0].mime_type),
-                types.Part.from_text(text="Transform the uploaded image into the style of Studio Ghibli.  Make it look like a scene from a Ghibli film, with soft lighting, vibrant colors, and hand-painted textures.")
+                types.Part.from_text(text=style_prompt)
             ]
         ),
         types.Content(
@@ -43,7 +42,7 @@ def generate(image_path):
             if not chunk.candidates or not chunk.candidates[0].content or not chunk.candidates[0].content.parts:
                 continue
             if chunk.candidates[0].content.parts[0].inline_data:
-                file_name = "ghibli_transformed_image"
+                file_name = "transformed_image"
                 inline_data = chunk.candidates[0].content.parts[0].inline_data
                 file_extension = mimetypes.guess_extension(inline_data.mime_type)
                 output_file = f"{file_name}{file_extension}"
@@ -56,20 +55,27 @@ def generate(image_path):
         st.error(f"Error during image generation: {e}")
         return None
 
-st.title("Ghibli Style Image Transformer")
+st.title("High Quality Style Image Transformer")
+mode = st.radio("Choose a transformation mode:", ("High Quality Ghibli Style Artwork", "High Quality 90s Anime Style"))
+if mode == "High Quality Ghibli Style Artwork":
+    prompt = ("Transform the uploaded image into a hyperrealistic Studio Ghibli style artwork. "
+              "Focus on the face and expressions with high detail, soft lighting, vibrant colors, and hand-painted textures.")
+else:
+    prompt = ("Transform the uploaded image into a hyperrealistic 90s Anime style artwork. "
+              "Focus on the face and expressions with high detail, sharp lines, bold colors, and dramatic lighting.")
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
-    st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
     if st.button("Transform Image"):
         with st.spinner("Transforming image..."):
             temp_file_path = f"temp_{uploaded_file.name}"
             with open(temp_file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
-            output_path = generate(temp_file_path)
+            output_path = generate(temp_file_path, prompt)
             os.remove(temp_file_path)
             if output_path:
                 st.success("Image transformed successfully!")
-                st.image(output_path, caption="Transformed Image", use_container_width=True)
+                st.image(output_path, caption="Transformed Image", use_column_width=True)
                 with open(output_path, "rb") as file:
                     mime_type = "image/jpeg" if output_path.lower().endswith((".jpg", ".jpeg")) else "image/png"
                     st.download_button(label="Download Transformed Image", data=file, file_name=output_path, mime=mime_type)
