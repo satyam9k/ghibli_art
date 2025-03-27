@@ -77,7 +77,7 @@ elif mode == "Comic Book Panel Style":
 else:  # Ghibli Aesthetic Nature Background
     prompt = (
         "Reimagine the uploaded image by blending the subject with a Studio Ghibli aesthetic nature background. "
-        "Focus on preserving the original subject and facial details while integrating a lush, detailed natural scenery in the Ghibli style. "
+        "Focus on preserving the original subject and facial details while integrating a lush, detailed natural scenery in the Ghibli style. Do not show the back of original subject, make them do some activity or face infront "
         "Use soft lighting, vibrant colors, and hand-painted textures to create an enchanting, cute, and soft output. "
         "Ensure the added nature background is seamlessly integrated and that no extraneous elements are introduced."
     )
