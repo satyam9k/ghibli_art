@@ -55,7 +55,46 @@ def generate(image_path, style_prompt):
         st.error(f"Error during image generation: {e}")
         return None
 
-st.title("High Quality Style Image Transformer")
+import streamlit as st
+
+# Inject CSS
+st.markdown(
+    """
+    <style>
+    /* Overall app background */
+    .stApp {
+        background: linear-gradient(135deg, #FDEFF9, #E6F7FF);
+        font-family: 'Open Sans', sans-serif;
+    }
+    /* Title styling */
+    .css-18e3th9 { 
+        font-size: 2.5rem;
+        color: #333;
+        font-weight: bold;
+    }
+    /* Button styling */
+    .stButton>button {
+        background-color: #FFB6C1;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+    }
+    /* File uploader styling */
+    .stFileUploader {
+        background-color: #fff;
+        border: 2px dashed #FFB6C1;
+        border-radius: 10px;
+        padding: 2rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.title("👨🏼‍🎨👩🏼‍🎨")
+
 mode = st.radio("Choose a transformation mode:", (
     "High Quality Ghibli Style Artwork", 
     "Classic Anime Style", 
