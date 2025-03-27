@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import mimetypes
+import tempfile
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
@@ -148,18 +149,42 @@ else:  # Playing in Ghibli World
         "Produce a cute and soft output with gentle lighting and harmonious colors, ensuring the subject remains central and true to the original image."
     )
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+# if uploaded_file is not None:
+#     st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+#     if st.button("Transform Image"):
+#         with st.spinner("Transforming image..."):
+#             # temp_file_path = f"temp_{uploaded_file.name}"
+#             # with open(temp_file_path, "wb") as f:
+#             #     f.write(uploaded_file.getbuffer())
+
+#             output_path = generate(temp_file_path, prompt)
+#             os.remove(temp_file_path)
+#             if output_path:
+#                 st.success("Image transformed successfully!")
+#                 st.image(output_path, caption="Transformed Image", use_container_width=True)
+#                 with open(output_path, "rb") as file:
+#                     mime_type = "image/jpeg" if output_path.lower().endswith((".jpg", ".jpeg")) else "image/png"
+#                     st.download_button(label="Download Transformed Image", data=file, file_name=output_path, mime=mime_type)
 if uploaded_file is not None:
     st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+    
     if st.button("Transform Image"):
         with st.spinner("Transforming image..."):
-            temp_file_path = f"temp_{uploaded_file.name}"
-            with open(temp_file_path, "wb") as f:
-                f.write(uploaded_file.getbuffer())
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as temp_file:
+                temp_file.write(uploaded_file.getbuffer())
+                temp_file_path = temp_file.name
+
             output_path = generate(temp_file_path, prompt)
-            os.remove(temp_file_path)
+
+            # Ensure we delete temp file only if processing succeeded
             if output_path:
+                os.remove(temp_file_path)
                 st.success("Image transformed successfully!")
                 st.image(output_path, caption="Transformed Image", use_container_width=True)
+
+                # Open transformed file and add download button
                 with open(output_path, "rb") as file:
-                    mime_type = "image/jpeg" if output_path.lower().endswith((".jpg", ".jpeg")) else "image/png"
-                    st.download_button(label="Download Transformed Image", data=file, file_name=output_path, mime=mime_type)
+                    mime_type = "image/jpeg" if output_path and output_path.lower().endswith((".jpg", ".jpeg")) else "image/png"
+                    st.download_button(label="Download Transformed Image", data=file, file_name=os.path.basename(output_path), mime=mime_type)
+            else:
+                st.error("❌ Image transformation failed. Please try again.")
