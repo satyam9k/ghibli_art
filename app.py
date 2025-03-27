@@ -63,20 +63,20 @@ mode = st.radio("Choose a transformation mode:", (
 ))
 if mode == "High Quality Ghibli Style Artwork":
     prompt = (
-        "Transform the uploaded image into a hyperrealistic Studio Ghibli style artwork while staying as true as possible "
+        "Transform the uploaded image into a Studio Ghibli style artwork while staying as true as possible "
         "to the original image. Focus on preserving the subject, facial features, expressions, and the background with high detail. "
         "Produce a cute and soft output with soft lighting, vibrant colors, and hand-painted textures. "
         "Avoid hallucinating elements not present in the original image and maintain context fidelity."
     )
 elif mode == "Comic Book Panel Style":
     prompt = (
-        "Transform the uploaded image into a hyperrealistic comic book panel style artwork while staying as true as possible "
+        "Transform the uploaded image into a Marvel comic book panel style artwork while staying as true as possible "
         "to the original image. Emphasize bold outlines, dynamic colors, and dramatic contrast with a clean, crisp comic aesthetic. "
         "Ensure that facial features and expressions remain clear, and produce a cute and soft overall output that retains the original context."
     )
 else:  # Ghibli Aesthetic Nature Background
     prompt = (
-        "Reimagine the uploaded image by blending the subject with a hyperrealistic Studio Ghibli aesthetic nature background. "
+        "Reimagine the uploaded image by blending the subject with a Studio Ghibli aesthetic nature background. "
         "Focus on preserving the original subject and facial details while integrating a lush, detailed natural scenery in the Ghibli style. "
         "Use soft lighting, vibrant colors, and hand-painted textures to create an enchanting, cute, and soft output. "
         "Ensure the added nature background is seamlessly integrated and that no extraneous elements are introduced."
