@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(135deg, #FE4F2D, #006A71);
+        background: linear-gradient(135deg, #EB5B00, #D91656);
         font-family: 'Open Sans', sans-serif;
     }
     .css-18e3th9 { 
@@ -86,7 +86,7 @@ def generate(image_path, style_prompt):
         st.error(f"Error during image generation: {e}")
         return None
 
-st.title("High Quality Style Image Transformer")
+st.title("👨🏼‍🎨👩🏼‍🎨")
 mode = st.radio("Choose a transformation mode:", (
     "High Quality Ghibli Style Artwork", 
     "Classic Anime Style", 
