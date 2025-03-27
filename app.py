@@ -123,11 +123,11 @@ def generate(image_path, style_prompt):
 
 st.title("👨🏻‍🎨✨👩🏻‍🎨")
 mode = st.radio("Choose a transformation mode:", (
-    "High Quality Ghibli Style Artwork", 
+    "Ghibli Style Artwork", 
     "Classic Anime Style", 
     "Playing in Ghibli World"
 ))
-if mode == "High Quality Ghibli Style Artwork":
+if mode == "Ghibli Style Artwork":
     prompt = (
         "Transform the uploaded image into a Studio Ghibli style artwork while staying as true as possible "
         "to the original image. Focus on preserving the subject, facial features, expressions, and the background with high detail. "
