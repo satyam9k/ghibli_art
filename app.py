@@ -29,7 +29,7 @@ st.markdown(
         font-size: 1rem;
     }
     .stFileUploader {
-        background-color: #F26B0F;
+        background-color: #7E1891;
         border: 2px dashed #FFB6C1;
         border-radius: 10px;
         padding: 2rem;
