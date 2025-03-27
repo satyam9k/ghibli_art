@@ -20,15 +20,15 @@ st.markdown(
         font-weight: bold;
     }
     .stButton>button {
-        background-color: #FFB200;
-        color: white;
+        background-color: #FF4545;
+        color: black;
         border-radius: 10px;
         border: none;
         padding: 0.5rem 1.5rem;
         font-size: 1rem;
     }
     .stFileUploader {
-        background-color: #FFB200;
+        background-color: #FF4545;
         border: 2px dashed #FFB6C1;
         border-radius: 10px;
         padding: 2rem;
