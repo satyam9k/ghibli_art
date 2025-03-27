@@ -58,14 +58,21 @@ def generate(image_path, style_prompt):
 st.title("High Quality Style Image Transformer")
 mode = st.radio("Choose a transformation mode:", ("High Quality Ghibli Style Artwork", "High Quality 90s Anime Style"))
 if mode == "High Quality Ghibli Style Artwork":
-    prompt = ("Transform the uploaded image into a hyperrealistic Studio Ghibli style artwork. "
-              "Focus on the face and expressions with high detail, soft lighting, vibrant colors, and hand-painted textures.")
+    prompt = (
+        "Transform the uploaded image into a hyperrealistic Studio Ghibli style artwork while staying as true as possible "
+        "to the original image. Focus on preserving the subject, facial features, and expressions with high detail. "
+        "Use soft lighting, vibrant colors, and hand-painted textures to evoke the Ghibli aesthetic. Do not add any elements "
+        "that are not present in the uploaded image; stick closely to the context and avoid hallucination."
+    )
 else:
-    prompt = ("Transform the uploaded image into a hyperrealistic 90s Anime style artwork. "
-              "Focus on the face and expressions with high detail, sharp lines, bold colors, and dramatic lighting.")
+    prompt = (
+        "Transform the uploaded image into a hyperrealistic 90s Anime style artwork while remaining faithful to the original image. "
+        "Emphasize clear, sharp facial features and expressions with high detail. Use bold colors, dramatic lighting, and clean lines "
+        "typical of 90s anime. Ensure the transformation closely follows the context of the uploaded image and avoid adding any extraneous details."
+    )
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
-    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+    st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
     if st.button("Transform Image"):
         with st.spinner("Transforming image..."):
             temp_file_path = f"temp_{uploaded_file.name}"
@@ -75,7 +82,7 @@ if uploaded_file is not None:
             os.remove(temp_file_path)
             if output_path:
                 st.success("Image transformed successfully!")
-                st.image(output_path, caption="Transformed Image", use_column_width=True)
+                st.image(output_path, caption="Transformed Image", use_container_width=True)
                 with open(output_path, "rb") as file:
                     mime_type = "image/jpeg" if output_path.lower().endswith((".jpg", ".jpeg")) else "image/png"
                     st.download_button(label="Download Transformed Image", data=file, file_name=output_path, mime=mime_type)
