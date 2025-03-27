@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(135deg, #FDEFF9, #E6F7FF);
+        background: linear-gradient(135deg, #FDEFF9, 48A6A7);
         font-family: 'Open Sans', sans-serif;
     }
     .css-18e3th9 { 
