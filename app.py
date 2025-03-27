@@ -10,36 +10,63 @@ load_dotenv()
 st.markdown(
     """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+    * {
+        font-family: 'Merriweather', serif !important;
+    }
+    
     .stApp {
-        # background: linear-gradient(135deg, #D91656, #640D5F);
         background: linear-gradient(135deg, #EB3678, #4F1787);
-        font-family: 'Merriweather', serif;
     }
-    .css-18e3th9 { 
+
+    .css-18e3th9, .stTitle {
         font-size: 2.5rem;
-        color: #333;
+        color: #fff;
         font-weight: bold;
-        font-family: 'Merriweather', serif;
     }
+
+    .stRadio label {
+        font-size: 1.2rem;
+        color: #FFFFFF;
+    }
+
     .stButton>button {
         background-color: #180161;
         color: white;
         border-radius: 10px;
         border: none;
-        padding: 0.5rem 1.5rem;
+        padding: 0.6rem 1.5rem;
         font-size: 1rem;
-        font-family: 'Merriweather', serif;
+        transition: background-color 0.3s ease-in-out;
     }
+    .stButton>button:hover {
+        background-color: #4F1787;
+    }
+
     .stFileUploader {
         background-color: #7E1891;
         border: 2px dashed #FFB6C1;
         border-radius: 10px;
-        padding: 2rem;
-        font-family: 'Merriweather', serif;
+        padding: 1.5rem;
     }
-    .stRadio label {
-        font-family: 'Merriweather', serif;
+
+    .stAlert {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .stDownloadButton>button {
+        background-color: #FFB6C1;
+        color: black;
+        border-radius: 10px;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .stSpinner {
         font-size: 1.2rem;
+        color: white;
     }
     </style>
     """,
