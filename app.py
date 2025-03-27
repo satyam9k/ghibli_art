@@ -59,7 +59,7 @@ st.title("High Quality Style Image Transformer")
 mode = st.radio("Choose a transformation mode:", (
     "High Quality Ghibli Style Artwork", 
     "Modern Day Anime Style", 
-    "Ghibli Aesthetic Nature Background"
+    "Playing in Ghibli World"
 ))
 if mode == "High Quality Ghibli Style Artwork":
     prompt = (
@@ -74,12 +74,12 @@ elif mode == "Modern Day Anime Style":
         "Focus on preserving the subject's facial features and expressions with crisp clarity, vibrant colors, and dynamic lighting. "
         "Utilize sleek, modern anime aesthetics to produce a cute and soft output that retains the original context without extraneous details."
     )
-else:  # Ghibli Aesthetic Nature Background
+else:  # Playing in Ghibli World
     prompt = (
-        "Reimagine the uploaded image by blending the subject with a Studio Ghibli aesthetic nature background that accentuates natural beauty and whimsical forest scenery. "
-        "Focus on preserving the original subject with clear, detailed facial features and expressions, while integrating lush, vibrant nature seamlessly in the background. "
-        "Ensure the subject is facing forward or engaged in an activity that complements the natural setting, avoiding any depiction of the subject's back. "
-        "Use soft, enchanting lighting, vivid colors, and hand-painted textures to evoke a dreamy, cute, and soft output."
+        "Reimagine the uploaded image as if the subject is playing in a Studio Ghibli world. "
+        "Blend the subject seamlessly with a magical, vibrant Ghibli-inspired setting filled with whimsical details and lush natural elements. "
+        "Focus on preserving the subject's facial features and expressions while portraying them engaging in playful activity within a richly detailed, enchanting environment. "
+        "Ensure the output is cute, soft, and faithful to the original image without introducing any unrelated elements."
     )
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
