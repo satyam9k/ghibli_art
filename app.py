@@ -56,20 +56,20 @@ def generate(image_path, style_prompt):
         return None
 
 st.title("High Quality Style Image Transformer")
-mode = st.radio("Choose a transformation mode:", ("High Quality Ghibli Style Artwork", "High Quality Disney Style Artwork"))
+mode = st.radio("Choose a transformation mode:", ("High Quality Ghibli Style Artwork", "High Quality Old School Disney Style Artwork"))
 if mode == "High Quality Ghibli Style Artwork":
     prompt = (
         "Transform the uploaded image into a hyperrealistic Studio Ghibli style artwork while staying as true as possible "
-        "to the original image. Focus on preserving the subject, facial features, and expressions with high detail. "
-        "Use soft lighting, vibrant colors, and hand-painted textures to evoke the Ghibli aesthetic. Do not add any elements "
-        "that are not present in the uploaded image; stick closely to the context and avoid hallucination."
+        "to the original image. Focus on preserving the subject, facial features, expressions, and the background with high detail. "
+        "Produce a cute and soft output with soft lighting, vibrant colors, and hand-painted textures. "
+        "Avoid hallucinating elements not present in the original image and maintain context fidelity."
     )
 else:
     prompt = (
-        "Transform the uploaded image into a hyperrealistic Disney style artwork while staying as true as possible "
-        "to the original image. Emphasize clear and expressive facial features, smooth and polished details, and a warm color palette. "
-        "Incorporate the signature charm and magical quality of Disney animation without introducing any extraneous elements. "
-        "Ensure that the transformation closely follows the uploaded image."
+        "Transform the uploaded image into a hyperrealistic old school Disney style artwork while staying as true as possible "
+        "to the original image. Emphasize clear, expressive facial features, and pay special attention to the background with detailed, "
+        "warm pastel colors and gentle, charming elements. Generate a cute and soft output with smooth, polished details and a nostalgic Disney feel. "
+        "Avoid introducing extraneous elements and stick closely to the context of the uploaded image."
     )
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
